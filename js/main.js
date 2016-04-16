@@ -3,6 +3,7 @@ var player;
 
 var background_one;
 var background_two;
+var background_speed = -50;
 
 var player_x_mod = 0;
 var player_y_mod = 0;
@@ -56,5 +57,20 @@ function update(){
         }else if(player.body.velocity.y < 0){
             player_y_mod +=10; 
         }
+    }
+    
+    moveBackground();
+}
+
+function moveBackground(){
+    background_one.body.velocity.x = background_speed;
+    background_two.body.velocity.x = background_speed;
+    
+    if(background_one.x < -1000){
+        background_one.x = 1000;
+    }
+    
+    if(background_two.x < -1000){
+        background_two.x = 1000;
     }
 }
